@@ -3,13 +3,15 @@ module Rails3JQueryAutocomplete
     def self.included(target)
       target.extend Rails3JQueryAutocomplete::Autocomplete::ClassMethods
 
-      if defined?(Mongoid::Document)
-        target.send :include, Rails3JQueryAutocomplete::Orm::Mongoid
-      elsif defined?(MongoMapper::Document)
-        target.send :include, Rails3JQueryAutocomplete::Orm::MongoMapper
-      else
-        target.send :include, Rails3JQueryAutocomplete::Orm::ActiveRecord
-      end
+      # if defined?(Mongoid::Document)
+      #   target.send :include, Rails3JQueryAutocomplete::Orm::Mongoid
+      # elsif defined?(MongoMapper::Document)
+      #   target.send :include, Rails3JQueryAutocomplete::Orm::MongoMapper
+      # elsif defined?(Her)
+        target.send :include, Rails3JQueryAutocomplete::Orm::Her
+      # else
+      #   target.send :include, Rails3JQueryAutocomplete::Orm::ActiveRecord
+      # end
     end
 
     #
